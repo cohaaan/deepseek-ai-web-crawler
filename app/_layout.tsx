@@ -1,7 +1,8 @@
 import { Stack } from 'expo-router';
 import { PaperProvider, MD3LightTheme, MD3DarkTheme } from 'react-native-paper';
 import { useColorScheme } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
+import { StatusBar } from 'expo-status-bar'
+import { useFrameworkReady } from '@/hooks/useFrameworkReady';
 
 const lightTheme = {
   ...MD3LightTheme,
@@ -28,6 +29,7 @@ const darkTheme = {
 };
 
 export default function RootLayout() {
+  useFrameworkReady();
   const colorScheme = useColorScheme();
   const theme = colorScheme === 'dark' ? darkTheme : lightTheme;
 
